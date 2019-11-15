@@ -174,7 +174,6 @@ export default class Markdown extends Component {
             ...style,
           }
         );
-        console.log(this.renderer)
       }
     }
 
