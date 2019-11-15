@@ -66,7 +66,7 @@ export default class Markdown extends Component {
       } else if (invalidProps.length > 0) {
         return new Error(
           `Invalid prop \`${propName}\` supplied to \`${componentName}\`. These ` +
-            `props are not of type function \`${invalidProps.join(', ')}\` `
+          `props are not of type function \`${invalidProps.join(', ')}\` `
         );
       }
     },
@@ -91,6 +91,12 @@ export default class Markdown extends Component {
   copy = '';
   renderer = null;
   markdownParser = null;
+
+  constructor(props) {
+    super(props);
+
+    this.updateSettings(props);
+  }
 
   /**
    * Only when the copy changes will the markdown render again.
@@ -178,21 +184,6 @@ export default class Markdown extends Component {
 
       this.markdownParser = md;
     }
-  }
-
-  /**
-   *
-   */
-  componentWillMount() {
-    this.updateSettings(this.props);
-  }
-
-  /**
-   *
-   * @param nextProps
-   */
-  componentWillReceiveProps(nextProps) {
-    this.updateSettings(nextProps);
   }
 
   /**

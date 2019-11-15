@@ -151,7 +151,9 @@ export const styles = StyleSheet.create({
     flex: 1,
     padding: 5,
   },
-  text: {},
+  text: {
+    color: '#fff',
+  },
   strikethrough: {
     textDecorationLine: 'line-through',
   },
