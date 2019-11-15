@@ -161,6 +161,9 @@ export default class Markdown extends Component {
       }
     } else {
       if (!this.renderer || this.props.renderer || this.props.rules !== rules || this.props.style !== style) {
+        Object.keys(styles).forEach((style) => {
+          styles[style] = { ...styles[style], color: '#fff' }
+        })
         this.renderer = new AstRenderer(
           {
             ...renderRules,
@@ -171,6 +174,7 @@ export default class Markdown extends Component {
             ...style,
           }
         );
+        console.log(this.renderer)
       }
     }
 
